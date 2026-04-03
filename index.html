@@ -498,6 +498,162 @@
             transform: scale(0.98);
         }
 
+        /* проект  */
+
+           .control-section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 50px;
+            border-radius: 40px;
+            background-color: var(--white);
+            background-image: radial-gradient(var(--dot-color) 2px, transparent 2px);
+            background-size: 30px 30px;
+            border: 1px solid var(--soft-pink);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.03);
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h2 {
+            color: var(--deep-accent);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        /* Блок для встроенного фрейма игры */
+        .game-frame-container {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background: #f9f9f9;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            border: 2px dashed var(--soft-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Визуализация стрелочек */
+        .keyboard-visual {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+        }
+
+        .key-group {
+            display: grid;
+            grid-template-areas: 
+                ". up ."
+                "left down right";
+            gap: 8px;
+        }
+
+        .key {
+            width: 60px;
+            height: 60px;
+            background: var(--white);
+            border: 2px solid var(--soft-purple);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--deep-accent);
+            box-shadow: 0 4px 0 var(--soft-purple);
+            transition: all 0.2s ease;
+            cursor: default;
+        }
+
+        /* Эффект при наведении мышкой вместо JS */
+        .key:hover {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 var(--soft-purple);
+            background: var(--soft-pink);
+            border-color: var(--deep-accent);
+        }
+
+        .key span { font-size: 0.75rem; color: var(--text-main); margin-top: 2px; }
+
+        .up { grid-area: up; }
+        .down { grid-area: down; }
+        .left { grid-area: left; }
+        .right { grid-area: right; }
+
+        .formula-box {
+            background: var(--soft-purple);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        /* Таблица подсказок */
+        .hint-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+
+        .hint-row {
+            background: var(--white);
+        }
+
+        .hint-cell {
+            padding: 18px;
+            border: 1px solid var(--soft-purple);
+        }
+
+        .hint-cell:first-child { 
+            border-radius: 15px 0 0 15px; 
+            width: 80px; 
+            text-align: center; 
+            font-size: 1.4rem;
+            color: var(--deep-accent);
+            font-weight: bold;
+        }
+        .hint-cell:last-child { 
+            border-radius: 0 15px 15px 0; 
+            color: var(--text-main); 
+            line-height: 1.5;
+        }
+        .hint-cell b { color: var(--accent-color); }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+
+        .scratch-button {
+            background: var(--button-grad);
+            color: white;
+            text-decoration: none;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px rgba(128, 0, 0, 0.2);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .scratch-button:hover { transform: scale(1.05); }
+
+        @media (max-width: 600px) {
+            .control-section { padding: 25px; }
+            .keyboard-visual { transform: scale(0.9); }
+            .header h2 { font-size: 1.6rem; }
+        }
 
         @media (max-width: 700px) {
             .tasks-container { grid-template-columns: 1fr; }
@@ -624,6 +780,62 @@
         </div>
     </section>
 
+
+    <section class="control-section">
+    <div class="header">
+        <h2>Стань повелителем героя 🕹️</h2>
+        <p>Посмотри, как работает управление, и попробуй создать такое же в своем проекте!</p>
+    </div>
+
+    <!-- Место для встроенного фрейма Scratch -->
+    <div class="game-frame-container">
+        <p style="color: #888; text-align: center; padding: 20px;">
+          <iframe src="https://scratch.mit.edu/projects/1298838725/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+        </p>
+    </div>
+
+    <div class="btn-container">
+        <a href="https://scratch.mit.edu/projects/1298840591" target="_blank" class="scratch-button">
+            🚀 Перейти в заготовку проекта
+        </a>
+    </div>
+
+    <div class="keyboard-visual">
+        <div class="key-group">
+            <div class="key up">↑ <span>Y+</span></div>
+            <div class="key left">← <span>X-</span></div>
+            <div class="key down">↓ <span>Y-</span></div>
+            <div class="key right">→ <span>X+</span></div>
+        </div>
+    </div>
+
+    <div class="formula-box">
+        <strong>💡 Золотое правило координат:</strong><br>
+        Чтобы идти <b>вверх/вниз</b> — меняем <b>Y</b>.<br>
+        Чтобы идти <b>вправо/влево</b> — меняем <b>X</b>.
+    </div>
+
+    <table class="hint-table">
+        <tr class="hint-row">
+            <td class="hint-cell">↑</td>
+            <td class="hint-cell">Блок «когда клавиша стрелка вверх нажата» → изменить <b>y</b> на <b>10</b></td>
+        </tr>
+        <tr class="hint-row">
+            <td class="hint-cell">↓</td>
+            <td class="hint-cell">Блок «когда клавиша стрелка вниз нажата» → изменить <b>y</b> на <b>-10</b></td>
+        </tr>
+        <tr class="hint-row">
+            <td class="hint-cell">→</td>
+            <td class="hint-cell">Блок «когда клавиша стрелка вправо нажата» → изменить <b>x</b> на <b>10</b></td>
+        </tr>
+        <tr class="hint-row">
+            <td class="hint-cell">←</td>
+            <td class="hint-cell">Блок «когда клавиша стрелка влево нажата» → изменить <b>x</b> на <b>-10</b></td>
+        </tr>
+    </table>
+</section>
+
+    
     <script>
         const colors = ['#ff4d4d', '#4d79ff', '#33cc33', '#ffd11a', '#ff9f43', '#ee5253', '#0abde3', '#10ac84', '#5f27cd', '#576574'];
         const colorNames = ['Красная', 'Синяя', 'Зеленая', 'Желтая', 'Оранжевая', 'Алая', 'Голубая', 'Изумрудная', 'Фиолетовая', 'Серая'];
